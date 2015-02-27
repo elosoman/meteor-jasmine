@@ -42,7 +42,9 @@ function loadFiles (context, options) {
  * @return {Array.<String>} list of filenames
  */
 function getJsFiles (options) {
-  var files = glob.sync('**/*.js', { cwd: PWD })
+  var files = glob.sync('**/*.js',
+    { ignore:'mobile-config.js', cwd: PWD }
+  );
 
   return filterFiles(files, options)
 }
